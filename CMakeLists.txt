@@ -10,12 +10,12 @@ set(CMAKE_C_COMPILER_WORKS 1)
 
 project(Acpica C)
 
-# Initialize CXXFLAGS.
-set(CMAKE_C_FLAGS                "-Wall -Werror -DACPI_LIBRARY -iquote ${CMAKE_SOURCE_DIR}/include")
-set(CMAKE_C_FLAGS_DEBUG          "-O0 -g")
+# Initialize CFLAGS.
+set(CMAKE_C_FLAGS                "-Wall -Werror -DACPI_LIBRARY -iquote ${CMAKE_SOURCE_DIR}/include -Wno-strict-aliasing")
+set(CMAKE_C_FLAGS_DEBUG          "-O0 -g3")
 set(CMAKE_C_FLAGS_MINSIZEREL     "-Os -DNDEBUG")
 set(CMAKE_C_FLAGS_RELEASE        "-O4 -flto -DNDEBUG")
-set(CMAKE_C_FLAGS_RELWITHDEBINFO "-O2 -g")
+set(CMAKE_C_FLAGS_RELWITHDEBINFO "-O2 -g3")
 
 add_library(acpica STATIC
   ${CMAKE_SOURCE_DIR}/components/tables/tbfind.c
